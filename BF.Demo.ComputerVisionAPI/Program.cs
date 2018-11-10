@@ -22,19 +22,19 @@ namespace BF.Demo.ComputerVisionAPI
                 {
                     case "A":
                         Console.WriteLine($"{Environment.NewLine}>> Trying to analyze a selfie...");
-                        AnalizeImageAsync(option).Wait();
+                        AnalyzeImageAsync(option).Wait();
                         break;
                     case "B":
                         Console.WriteLine($"{Environment.NewLine}>> Trying to detect a monument...");
-                        AnalizeImageAsync(option).Wait();
+                        AnalyzeImageAsync(option).Wait();
                         break;
                     case "C":
                         Console.WriteLine($"{Environment.NewLine}>> Trying to detect a celebrity...");
-                        AnalizeImageAsync(option).Wait();
+                        AnalyzeImageAsync(option).Wait();
                         break;
                     case "D":
                         Console.WriteLine($"{Environment.NewLine}>> Trying to detect a drawing...");
-                        AnalizeImageAsync(option).Wait();
+                        AnalyzeImageAsync(option).Wait();
                         break;
                     case "E":
                         Console.WriteLine($"{Environment.NewLine}>> Trying to describe an image...");
@@ -62,7 +62,7 @@ namespace BF.Demo.ComputerVisionAPI
             }
         }
 
-        private static async Task AnalizeImageAsync(string option)
+        private static async Task AnalyzeImageAsync(string option)
         {
             var imageFilePath = GetImageFullPath($"Vision-{option}.jpg");
             var byteData = GetImageAsByteArray(imageFilePath);
@@ -70,7 +70,7 @@ namespace BF.Demo.ComputerVisionAPI
             Console.WriteLine($"{Environment.NewLine}>> Calling Computer Vision API, please wait a moment for the results...");
 
             var client = new ComputerVisionAPIClient();
-            var results = await client.AnalizeImageAsync(byteData, "Categories,Tags,Description,Faces,ImageType,Color,Adult", "Celebrities,Landmarks");
+            var results = await client.AnalyzeImageAsync(byteData, "Categories,Tags,Description,Faces,ImageType,Color,Adult", "Celebrities,Landmarks");
 
             ShowResults(results);
         }

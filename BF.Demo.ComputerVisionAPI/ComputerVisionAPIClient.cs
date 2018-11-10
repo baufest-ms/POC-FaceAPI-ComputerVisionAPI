@@ -26,7 +26,7 @@ namespace BF.Demo.ComputerVisionAPI
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", API_SUBSCRIPTION_KEY);
         }
 
-        internal async Task<string> AnalizeImageAsync(byte[] image, string features = null, string details = null)
+        internal async Task<string> AnalyzeImageAsync(byte[] image, string features = null, string details = null)
         {
             var requestParameters = "language=en"
                 + (!string.IsNullOrEmpty(features) ? $"&visualFeatures={features}" : string.Empty)
